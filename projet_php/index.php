@@ -2,7 +2,8 @@
 require_once 'database.php';
 require_once 'CollaborateurManager.php';
 
-$manager = new CollaborateurManager($db);
+$pdo = Database::getInstance();
+$manager = new CollaborateurManager($pdo);
 $erreur = "";
 
 // LOGIQUE : Ajout d'un membre (POST)
