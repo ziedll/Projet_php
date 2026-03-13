@@ -24,7 +24,7 @@ class CollaborateurManager {
     }
 
     public function search($motCle) {
-        $req = $this->db->prepare("SELECT * FROM collaborateurs WHERE nom ILIKE ? OR role ILIKE ?");
+        $req = $this->db->prepare("SELECT * FROM collaborateurs WHERE nom LIKE ? OR role LIKE ?");
         $term = "%$motCle%";
         $req->execute([$term, $term]);
         return $req->fetchAll(PDO::FETCH_CLASS, 'Collaborateur');
