@@ -25,7 +25,7 @@ if (isset($_GET['delete'])) {
 }
 
 // LOGIQUE : Recherche (GET) ou Affichage global
-$membres = isset($_GET['q']) ? $manager->search($_GET['q']) : $manager->getAll();
+$membres = isset($_GET['nom']) ? $manager->search($_GET['nom']) : $manager->getAll();
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $membres = isset($_GET['q']) ? $manager->search($_GET['q']) : $manager->getAll()
     <h1>Nexus Hub - Annuaire Interne</h1>
 
    <header>
-        <form action="/resultats" method="GET" class="barre-recherche">
+        <form action="index.php" method="GET" class="barre-recherche">
             <input type="search" name="nom" placeholder="Recherchez l'employé !">
             <button type="submit">Rechercher</button>
         </form>
