@@ -36,11 +36,12 @@ $membres = isset($_GET['q']) ? $manager->search($_GET['q']) : $manager->getAll()
 <body>
     <h1>Nexus Hub - Annuaire Interne</h1>
 
-    <form method="GET">
-        <input type="text" name="q" placeholder="Rechercher un nom ou un rôle...">
-        <button type="submit">Filtrer</button>
-    </form>
-
+   <header>
+        <form action="/resultats" method="GET" class="barre-recherche">
+            <input type="search" name="nom" placeholder="Recherchez l'employé !">
+            <button type="submit">Rechercher</button>
+        </form>
+    </header> 
     <?php if($erreur) echo "<p style='color:red;'>$erreur</p>"; ?>
 
     <section>
