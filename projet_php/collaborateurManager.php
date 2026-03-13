@@ -8,6 +8,7 @@ class CollaborateurManager{
         $this->db = $database;
     }
 
+    // fonction get all
     public function getAll(): array{
         $query = $this->db->query('SELECT * FROM collaborateurs ORDER BY id DESC');
 
@@ -24,16 +25,19 @@ class CollaborateurManager{
         return $collaborateurs;
     }
 
+    // fonction add
     public function add(Collaborateur $collab){
         $req = $this->db->prepare("INSERT INTO collaborateurs (nom, age, role) VALUES (?, ?, ?)");
         $req->execute([$collab->getNom(), $collab->getAge(), $collab->getRole()]);
     }
 
+    // fonction delete
     public function delete($id){
         $req = $this->db->prepare("DELETE FROM collaborateurs WHERE id = ?");
         $req->execute([$id]);
     }
 
+    // fonction search
     public function search($motCle){
         $req = $this->db->prepare("SELECT * FROM collaborateurs WHERE nom LIKE ? OR role LIKE ?");
         $term = "%$motCle%";
