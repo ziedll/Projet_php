@@ -1,5 +1,5 @@
 <?php
-require_once 'Collaborateur.php';
+require_once 'pdo.php';
 
 class CollaborateurManager{
     private $db;
